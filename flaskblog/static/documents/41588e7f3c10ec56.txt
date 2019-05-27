@@ -1,0 +1,16 @@
+for subdir, dirs, files, in os.walk(path):
+    for f in fnmatch.filter(files, '*.txt'):
+        print(f)
+
+# print(len(configfiles))
+#print(configfiles)
+
+for f in configfiles:
+    print (f)
+    c = re.search('(name|deceptiv)\w',f)
+    label.append(c.group())
+    print (label)
+
+labels = pd.DataFrame(label, columns = ['Labels'])
+#print(labels.head(5))
+

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <style>
+        table tr{
+            counter-increment: row-num;
+        }
+        table tr td:first-child::before{
+            content: counter(row-num) ". ";
+        }
+    </style>
+    <legend class="border-bottom mb-4 ">Previous History</legend>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Data</th>
+          <th scope="col">Names</th>
+            <th scope="col">Location</th>
+            <th scope="col">Organaization</th>
+            <th scope="col">Date</th>
+            <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+         {% for post in posts %}
+            <tr>
+                <td></td>
+                <td>{{post["content"]}}</td>
+                <td>{{post["name"]}}</td>
+                <td>{{post["location"]}}</td>
+                <td>{{post["organization"]}}</td>
+                <td>{{post["date"]}}</td>
+                <td>{{post["email"]}}</td>
+            </tr>
+         {% endfor %}
+
+      </tbody>
+    </table>
+
+    <a href = "/home">Go back to home</a>
+{% endblock content %}
